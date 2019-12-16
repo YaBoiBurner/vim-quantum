@@ -5,7 +5,7 @@
 highlight clear
 
 if exists('syntax_on')
-    syntax reset
+  syntax reset
 endif
 
 set background=dark
@@ -38,20 +38,20 @@ let s:npink     = '#e040fb'
 let s:ppink     = '#ffb2dd'
 
 function! s:HL(group, fg, bg, attr)
-    let l:attr = a:attr
-    if !g:quantum_italics && l:attr ==# 'italic'
-        let l:attr = 'none'
-    endif
+  let l:attr = a:attr
+  if !g:quantum_italics && l:attr ==# 'italic'
+    let l:attr = 'none'
+  endif
 
-    if !empty(a:fg)
-        exec 'hi ' . a:group . ' guifg=' . a:fg
-    endif
-    if !empty(a:bg)
-        exec 'hi ' . a:group . ' guibg=' . a:bg
-    endif
-    if !empty(a:attr)
-        exec 'hi ' . a:group . ' gui=' . l:attr . ' cterm=' . l:attr
-    endif
+  if !empty(a:fg)
+    exec 'hi ' . a:group . ' guifg=' . a:fg
+  endif
+  if !empty(a:bg)
+    exec 'hi ' . a:group . ' guibg=' . a:bg
+  endif
+  if !empty(a:attr)
+    exec 'hi ' . a:group . ' gui=' . l:attr . ' cterm=' . l:attr
+  endif
 endfun
 
 " Vim Editor
@@ -274,22 +274,22 @@ call s:HL('zshBuiltin',                     s:npink,    '',         '')
 
 " Neovim terminal colors
 if has('nvim')
-    let g:terminal_color_0 = s:gray1
-    let g:terminal_color_1 = s:red
-    let g:terminal_color_2 = s:green
-    let g:terminal_color_3 = s:yellow
-    let g:terminal_color_4 = s:blue
-    let g:terminal_color_5 = s:purple
-    let g:terminal_color_6 = s:cyan
-    let g:terminal_color_7 = s:gray5
-    let g:terminal_color_8 = s:gray3
-    let g:terminal_color_9 = s:red
-    let g:terminal_color_10 = s:green
-    let g:terminal_color_11 = s:yellow
-    let g:terminal_color_12 = s:blue
-    let g:terminal_color_13 = s:purple
-    let g:terminal_color_14 = s:cyan
-    let g:terminal_color_15 = s:gray4
-    let g:terminal_color_background = g:terminal_color_0
-    let g:terminal_color_foreground = g:terminal_color_7
+  let g:terminal_color_0 = s:gray1
+  let g:terminal_color_1 = s:red
+  let g:terminal_color_2 = s:green
+  let g:terminal_color_3 = s:yellow
+  let g:terminal_color_4 = s:blue
+  let g:terminal_color_5 = s:purple
+  let g:terminal_color_6 = s:cyan
+  let g:terminal_color_7 = s:gray5
+  let g:terminal_color_8 = s:gray3
+  let g:terminal_color_9 = s:red
+  let g:terminal_color_10 = s:green
+  let g:terminal_color_11 = s:yellow
+  let g:terminal_color_12 = s:blue
+  let g:terminal_color_13 = s:purple
+  let g:terminal_color_14 = s:cyan
+  let g:terminal_color_15 = s:gray4
+  let g:terminal_color_background = g:terminal_color_0
+  let g:terminal_color_foreground = g:terminal_color_7
 endif
