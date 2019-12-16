@@ -21,13 +21,21 @@ let s:gray3     = g:quantum_black ? '#474646' : '#425762'
 let s:gray4     = g:quantum_black ? '#6a6c6c' : '#658494'
 let s:gray5     = g:quantum_black ? '#b7bdc0' : '#aebbc5'
 let s:red       = '#dd7186'
+let s:nred      = '#d50000'
 let s:green     = '#87bb7c'
+let s:lgreen    = '#689f38'
+let s:ngreen    = '#1de9b6'
 let s:yellow    = '#d5b875'
+let s:nyellow   = '#ffff00'
 let s:blue      = '#70ace5'
 let s:purple    = '#a48add'
 let s:cyan      = '#69c5ce'
 let s:orange    = '#d7956e'
 let s:indigo    = '#7681de'
+let s:amber     = '#ffa000'
+let s:pink      = '#d81b60'
+let s:npink     = '#e040fb'
+let s:ppink     = '#ffb2dd'
 
 function! s:HL(group, fg, bg, attr)
     let l:attr = a:attr
@@ -48,6 +56,7 @@ endfun
 
 " Vim Editor
 call s:HL('ColorColumn',                    '',         s:gray2,    '')
+call s:HL('Conceal',                        s:indigo,   s:gray1,    'bold')
 call s:HL('Cursor',                         s:gray2,    s:gray5,    '')
 call s:HL('CursorColumn',                   '',         s:gray2,    '')
 call s:HL('CursorLine',                     '',         s:gray2,    'none')
@@ -76,7 +85,7 @@ call s:HL('Search',                         s:gray1,    s:yellow,   '')
 call s:HL('SignColumn',                     s:gray5,    s:gray1,    '')
 call s:HL('SpecialKey',                     s:gray4,    '',         '')
 call s:HL('SpellCap',                       s:blue,     s:gray2,    'undercurl')
-call s:HL('SpellBad',                       s:red,      s:gray2,    'undercurl')
+call s:HL('SpellBad',                       '',         '',         'undercurl')
 call s:HL('StatusLine',                     s:gray5,    s:gray3,    'none')
 call s:HL('StatusLineNC',                   s:gray2,    s:gray4,    '')
 call s:HL('TabLine',                        s:gray4,    s:gray2,    'none')
@@ -102,6 +111,7 @@ call s:HL('Include',                        s:blue,     '',         '')
 call s:HL('Define',                         s:purple,   '',         'none')
 call s:HL('Macro',                          s:purple,   '',         '')
 call s:HL('Type',                           s:yellow,   '',         'none')
+call s:HL('Typedef',                        s:yellow,   '',         'bold')
 call s:HL('Structure',                      s:cyan,     '',         '')
 call s:HL('Special',                        s:indigo,   '',         '')
 call s:HL('Underlined',                     s:blue,     '',         'none')
@@ -211,6 +221,27 @@ call s:HL('rubyRegexp',                     s:cyan,     '',         '')
 call s:HL('rubyRegexpDelimiter',            s:indigo,   '',         '')
 call s:HL('rubyStringDelimiter',            s:green,    '',         '')
 
+" Python
+" numirias/semshi
+call s:HL('semshiLocal',                    s:orange,   '',         '')
+call s:HL('semshiGlobal',                   s:amber,    '',         '')
+call s:HL('semshiImported',                 s:amber,    '',         'bold')
+call s:HL('semshiParameter',                s:blue,     '',         '')
+call s:HL('semshiParameterUnused',          s:cyan,     '',         'underline')
+call s:HL('semshiFree',                     s:ppink,    '',         '')
+call s:HL('semshiBuiltin',                  s:npink,    '',         '')
+call s:HL('semshiAttribute',                s:ngreen,   '',         '')
+call s:HL('semshiSelf',                     s:gray4,    '',         '')
+call s:HL('semshiUnresolved',               s:nyellow,  '',         'underline')
+call s:HL('semshiSelected',                 s:gray5,    s:pink,     '')
+call s:HL('semshiErrorSign',                s:gray5,    s:nred,     '')
+call s:HL('semshiErrorChar',                s:gray5,    s:nred,     '')
+
+" Rust
+call s:HL('rustAssert',                     s:yellow,   '',         '')
+call s:HL('rustPanic',                      s:red,      '',         '')
+hi link rustStructure Structure
+
 " Sass
 call s:HL('sassAmpersand',                  s:red,      '',         '')
 call s:HL('sassClassChar',                  s:yellow,   '',         '')
@@ -237,6 +268,9 @@ call s:HL('xmlAttrib',                      s:yellow,   '',         '')
 call s:HL('xmlEndTag',                      s:blue,     '',         '')
 call s:HL('xmlTag',                         s:blue,     '',         '')
 call s:HL('xmlTagName',                     s:blue,     '',         '')
+
+" Zsh
+call s:HL('zshBuiltin',                     s:npink,    '',         '')
 
 " Neovim terminal colors
 if has('nvim')
